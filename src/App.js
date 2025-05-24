@@ -1,6 +1,6 @@
 
 import './App.css';
-import { HashRouter, Link } from "react-router-dom";
+import { HashRouter, Link, Route, Routes } from "react-router-dom";
 import Home from './components/Home/Home';
 import ToDoList from './components/ToDoList/ToDoList';
 import Contacts from './components/Contacts/Contacts';
@@ -16,10 +16,12 @@ function App() {
             <li><Link to="/todolist">To do list</Link></li>
             <li><Link to="/contacts">Contacts</Link></li>
           </ul>
+          <Routes>
+            <Route exact path='/' Component={Home} />
+            <Route path='/todolist' Component={ToDoList} />
+            <Route path='/contacts' Component={Contacts} />
+          </Routes>
        </HashRouter>
-       <Home />
-       <ToDoList />
-       <Contacts />
       </header>
     </div>
   );
