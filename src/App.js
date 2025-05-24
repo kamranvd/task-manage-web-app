@@ -17,10 +17,10 @@ function App() {
             <li><Link to="/contacts">Contacts</Link></li>
           </ul>
           <Routes>
-            <Route exact path='/' Component={Home} />
-            <Route exact path='/todolist' Component={ToDoList} />
-            <Route path='/todolist/:postid' Component={ToDoList} />
-            <Route path='/contacts' Component={Contacts} />
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/todolist' element={<ToDoList />} />
+            <Route path='/todolist/:postid' element={<ToDoList />} />
+            <Route path='/contacts' element={<Contacts />} />
           </Routes>
        </Router>
       </header>
