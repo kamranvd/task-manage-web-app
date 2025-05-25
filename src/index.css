@@ -48,11 +48,7 @@ code {
   font-size: 14px;
   border-radius: 50px;
   transition: 0.3s;
-}
-
-.header {
-  color: white;
-  background: #cda45e;
+  background: black
 }
 
 .header .navbarcontainer {
