@@ -9,7 +9,19 @@ export default function ToDoList(props) {
     const listId = postid ?? 'All';
   return (
     <div>
-        ToDoList ({ listId })
+        <h2>Task Management App</h2>
+            <ul>
+                ToDoList ({ listId })
+                <li>
+                    <form  className="form-search" id="searchForm" >
+                            <label>
+                                Search:
+                                <input type="text" name="search" id="searchInput" required />
+                            </label>
+                            <button className="btn-search" type="submit">Search</button>
+                        </form>
+                </li>
+            </ul>
     </div>
   )
 }
