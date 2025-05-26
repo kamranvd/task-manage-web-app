@@ -15,3 +15,18 @@
 .no-bullets-list li input[type='checkbox'] {
     margin-right: 8px;
 }
+
+.completed-task-label {
+    text-decoration: line-through;
+    opacity: 50%;
+    color: #888;
+}
+
+/*
+.group-tasks-list {
+    display: flexbox;
+    flex-direction: column;
+    background-color: lightgray;
+    justify-content: center;
+    align-items: center;
+} */

@@ -4,15 +4,34 @@ import { HashRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Home from './components/Home/Home';
 import ToDoList from './components/ToDoList/ToDoList';
 import Contacts from './components/Contacts/Contacts';
+import { useState } from 'react';
 
 function App() {
 
-  const tasks = [
-    { id: 1, taskitem: 'Get groceries' },
-    { id: 2, taskitem: 'Work on project' },
-    { id: 3, taskitem: 'Study for school' }
-  ];
+  const [tasks, setTasks] = useState([
+    { id: 1, taskitem: 'Get groceries', isCompleted: false },
+    { id: 2, taskitem: 'Work on project', isCompleted: false },
+    { id: 3, taskitem: 'Study for school', isCompleted: false } 
+  ]);
 
+  // Function to add a new task
+  const addTask = (newTaskText) => {
+    const newTask = {
+      id: tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 1, 
+      taskitem: newTaskText,
+      isCompleted: false,
+    };
+    setTasks(prevTasks => [...prevTasks, newTask]); 
+  };
+
+  // Function to toggle the completion status of a task
+  const toggleTaskCompletion = (id) => {
+    setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
+      )
+    );
+  };
 
   return (
     <div className="App">
@@ -32,13 +51,34 @@ function App() {
               </div>
           </div>
       </header>
-      <main>
+      <main className="main-content-wrapper d-flex justify-content-center align-items-start">
+        <div className="centered-content-box">
             <Routes>
               <Route exact path='/' element={<Home />} />
-              <Route exact path='/todolist' element={<ToDoList tasks={tasks} />} />
-              <Route path='/todolist/:postid' element={<ToDoList tasks={tasks} />} />
+              <Route
+              exact
+              path='/todolist'
+              element={
+                <ToDoList
+                  tasks={tasks}
+                  onAddTask={addTask} 
+                  onToggleCompletion={toggleTaskCompletion} 
+                />
+              }
+            />
+            <Route
+              path='/todolist/:postid'
+              element={
+                <ToDoList
+                  tasks={tasks}
+                  onAddTask={addTask}
+                  onToggleCompletion={toggleTaskCompletion}
+                />
+              }
+            />
               <Route path='/contacts' element={<Contacts />} />
-            </Routes>
+            </Routes>          
+        </div>
       </main>
     </Router>
     </div>

@@ -1,3 +1,52 @@
 .App {
   text-align: left;
 }
+
+
+.main-content-wrapper {
+  /* Make the wrapper a flex container */
+  display: flex;
+  /* Make it take full available width (e.g., below header) */
+  width: 100%;
+  /* Ensure it takes up vertical space. min-height: 100vh - height of header/footer */
+  min-height: calc(100vh - 100px); /* Adjust 100px based on your header/footer height */
+  /* Center its direct child (the content box) horizontally */
+  justify-content: center;
+  /* Align items at the start vertically (optional, depends on content flow) */
+  align-items: flex-start;
+  /* Optional: Add some padding at the top/bottom */
+  padding: 20px 0;
+  /* Optional: Background color for the wrapper itself, if different from the box */
+  /* background-color: #f0f0f0; */
+}
+
+.centered-content-box {
+  /* Set a max-width for the box */
+  max-width: 800px; /* Adjust as needed for your design */
+  /* Or a specific width if you want it fixed */
+  /* width: 70%; */
+  /* Add padding inside the box */
+  padding: 20px 30px;
+  /* Set the background color */
+  background-color: #ada9a9; /* Light grey background */
+  /* Add border-radius for rounded corners (optional) */
+  border-radius: 8px;
+  /* Add a shadow (optional) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Ensure content respects box width */
+  box-sizing: border-box; /* Include padding/border in width calculation */
+}
+
+/* You might want to remove the specific background from .group-tasks-list now */
+/* if you want the grey background from .centered-content-box to show */
+/* Remove or modify this if .group-tasks-list is inside the content box */
+
+.group-tasks-list {
+    flex-direction: column;
+    /* background-color: transparent;  Or remove this line */
+    justify-content: center;
+    align-content: center;
+    align-items: center; /* To center list items if they are narrow */
+    padding: 0;
+    margin: 0;
+}
