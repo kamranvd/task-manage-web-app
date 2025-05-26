@@ -7,6 +7,12 @@ import Contacts from './components/Contacts/Contacts';
 
 function App() {
 
+  const tasks = [
+    { id: 1, taskitem: 'Get groceries' },
+    { id: 2, taskitem: 'Work on project' },
+    { id: 3, taskitem: 'Study for school' }
+  ];
+
 
   return (
     <div className="App">
@@ -29,8 +35,8 @@ function App() {
       <main>
             <Routes>
               <Route exact path='/' element={<Home />} />
-              <Route exact path='/todolist' element={<ToDoList />} />
-              <Route path='/todolist/:postid' element={<ToDoList />} />
+              <Route exact path='/todolist' element={<ToDoList tasks={tasks} />} />
+              <Route path='/todolist/:postid' element={<ToDoList tasks={tasks} />} />
               <Route path='/contacts' element={<Contacts />} />
             </Routes>
       </main>
