@@ -18,8 +18,8 @@
 
 .completed-task-label {
     text-decoration: line-through;
-    opacity: 50%;
-    color: #888;
+    opacity: .7;
+    color: darkgreen;
 }
 
 /*
@@ -30,3 +30,16 @@
     justify-content: center;
     align-items: center;
 } */
+
+.filter-button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12spx;
+  margin: 4px 2px;
+  border-radius: 10px;
+}
