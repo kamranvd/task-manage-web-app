@@ -33,6 +33,10 @@ function App() {
     );
   };
 
+  const deleteTask = (id) => {
+    setTasks(prevTasks => prevTasks.filter(task => task.id !== id));
+  };
+
   return (
     <div className="App">
     <Router>
@@ -62,7 +66,8 @@ function App() {
                 <ToDoList
                   tasks={tasks}
                   onAddTask={addTask} 
-                  onToggleCompletion={toggleTaskCompletion} 
+                  onToggleCompletion={toggleTaskCompletion}
+                  onDeleteTask={deleteTask} 
                 />
               }
             />
@@ -73,6 +78,7 @@ function App() {
                   tasks={tasks}
                   onAddTask={addTask}
                   onToggleCompletion={toggleTaskCompletion}
+                  onDeleteTask={deleteTask}
                 />
               }
             />

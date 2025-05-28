@@ -7,7 +7,7 @@ export default function ToDoList(props) {
     const listId = postid ?? 'All';
 
     const currentTasks = Array.isArray(props.tasks) ? props.tasks : [];
-    const { onAddTask, onToggleCompletion } = props; 
+    const { onAddTask, onToggleCompletion, onDeleteTask } = props; 
 
     const [newTaskText, setNewTaskText] = useState(''); 
     const [filter, setFilter] = useState('all');
@@ -27,6 +27,10 @@ export default function ToDoList(props) {
     const handleCheckboxChange = (taskId) => {
         onToggleCompletion(taskId); 
     };
+
+    const handleDeleteClick = (taskid) => {
+        onDeleteTask(taskid);
+    }
 
     const getFilteredTasks = () => {
         switch (filter) {
@@ -48,7 +52,6 @@ export default function ToDoList(props) {
 
         <h3>Current List: { listId }</h3>
 
-        {/* New Task Form */}
         <form className="form-search" onSubmit={handleSubmit}> 
             <label>
                 New Task:
@@ -64,7 +67,6 @@ export default function ToDoList(props) {
             <button className="btn-task" type="submit">Add</button>
         </form>
 
-        {/* Task List */}
 
 
         <ul className="no-bullets-list">
@@ -82,6 +84,9 @@ export default function ToDoList(props) {
                             />
                             {task.taskitem}
                         </label>
+                        <button className="delete-task-button" onClick={() => handleDeleteClick(task.id)}>
+                            Delete
+                        </button>
                     </li>
                 ))
             ) : (
@@ -92,22 +97,13 @@ export default function ToDoList(props) {
         </ul>
             <div className="task-filters"> 
                 Show:
-            <button
-                className={`filter-button ${filter === 'all' ? 'active-filter' : ''}`}
-                onClick={() => setFilter('all')}
-            >
+            <button className={`filter-button ${filter === 'all' ? 'active-filter' : ''}`} onClick={() => setFilter('all')}>
                 All
             </button>
-            <button
-                className={`filter-button ${filter === 'active' ? 'active-filter' : ''}`}
-                onClick={() => setFilter('active')}
-            >
+            <button className={`filter-button ${filter === 'active' ? 'active-filter' : ''}`} onClick={() => setFilter('active')}>
                 Active
             </button>
-            <button
-                className={`filter-button ${filter === 'completed' ? 'completed' : ''}`}
-                onClick={() => setFilter('completed')}
-            >
+            <button className={`filter-button ${filter === 'completed' ? 'completed' : ''}`} onClick={() => setFilter('completed')}>
                 Completed
             </button>
             </div>

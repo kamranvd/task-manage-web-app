@@ -32,14 +32,27 @@
 } */
 
 .filter-button {
-  background-color: #04AA6D;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12spx;
-  margin: 4px 2px;
-  border-radius: 10px;
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12spx;
+    margin: 4px 2px;
+    border-radius: 10px;
+}
+
+.delete-task-button {
+    background-color: #e80404;
+    border: none;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8spx;
+    margin: 4px 2px;
+    border-radius: 10px;
 }
