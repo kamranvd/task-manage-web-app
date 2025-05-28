@@ -1,3 +1,25 @@
+# giphy - project 2
+React Redux Task Management App Website
+
+- Overview/description of the project
+    - This is a task management website. A user can enter tasks they want to complete.
+- Details on how to use it or what functionality is offered
+    - It provides simple form to enter tasks. It uses the single-page application model to simplify searching.
+    - The site will show if a task has been completed or is active.
+    - You can add or remove tasks.
+    - Display all, active or completed tasks.
+    - On the contact page you can enter contact information - nothing is actually submitted. The form can hold state. This would allow the data to be sent to an API. Nothing happens at this time.
+- Technologies Used ( .html , .css )
+    - It uses HTML, CSS, Bootstrap, Javascript, React.
+    - The CSS and Bootstrap are the latest versions
+- Ideas for future improvement (minimum of 3)
+    - Search tasks based on date and terms.
+    - Display calendar of upcoming tasks.
+    - Assign categories to tasks.
+    - Export tasks to CSV.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
