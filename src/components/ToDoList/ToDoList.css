@@ -1,36 +1,56 @@
+/* Styling for the overall task list block container */
 .task-block {
     display: flex;
     flex-direction: column;
-    justify-content: right;
+    /* To center content horizontally within the .task-block container */
     align-items: center;
+    /* To vertically align content (e.g., if .task-block has a fixed height) */
+    justify-content: center; /* Or flex-start, flex-end, etc. depending on vertical alignment needs */
     padding: 30px;
 }
 
+/* Styling for the <ul> element */
 .no-bullets-list {
     list-style-type: none;
-    padding: 10px;
+    padding: 10px; /* Some padding around the list items */
     margin: 2px 0 0 0;
+    width: 100%; /* Ensure the list takes full width of its parent for better item alignment */
 }
 
+/* Styling for each <li> element (the individual task item row) */
+.task-item {
+    display: flex;             /* Make each list item a flex container */
+    align-items: center;       /* Vertically center the checkbox/text and the delete icon */
+    justify-content: space-between; /* Push checkbox/label to one end, icon to the other */
+    padding: 8px 0;            /* Vertical padding for each task row */
+    border-bottom: 1px solid #eee; /* Separator line between tasks */
+}
+
+/* Styling for the label containing checkbox and text */
+.task-item label {
+    display: flex;             /* Make the label itself a flex container */
+    align-items: center;       /* Vertically align checkbox and text within the label */
+    gap: 8px;                  /* Space between checkbox and text */
+    flex-grow: 1;              /* Allow the label to take up available space */
+    /* Add optional overflow control for very long task items */
+    /* overflow-wrap: break-word; */
+    /* word-break: break-word; */
+}
+
+/* Styling for the checkbox itself */
 .no-bullets-list li input[type='checkbox'] {
-    margin-right: 8px;
+    margin-right: 8px; /* Consistent space to the right of the checkbox */
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
 }
 
+/* Styling for completed tasks */
 .completed-task-label {
     text-decoration: line-through;
-    opacity: .7;
+    opacity: 0.7; /* Changed .7 to 0.7 for clarity */
     color: darkgreen;
 }
 
-/*
-.group-tasks-list {
-    display: flexbox;
-    flex-direction: column;
-    background-color: lightgray;
-    justify-content: center;
-    align-items: center;
-} */
-
+/* Styling for filter buttons */
 .filter-button {
     background-color: #04AA6D;
     border: none;
@@ -38,12 +58,14 @@
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 12spx;
+    /* display: inline-block; - this is okay but could be removed if parent is flex and controlling it */
+    font-size: 12px; /* Corrected typo: spx -> px */
     margin: 4px 2px;
     border-radius: 10px;
+    cursor: pointer; /* Indicate it's clickable */
 }
 
+/* Styling for the old 'Delete' text button (if still used) */
 .delete-task-button {
     background-color: #e80404;
     border: none;
@@ -51,8 +73,29 @@
     padding: 8px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 8spx;
+    /* display: inline-block; - can be removed if parent is flex */
+    font-size: 8px; /* Corrected typo: spx -> px */
     margin: 4px 2px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Styling for the delete icon button */
+.delete-task-icon-button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px; /* Increase padding for a larger clickable area */
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: flex; /* Make it a flex container to center the Font Awesome icon */
+    align-items: center; /* Vertically center the icon within the button's padding */
+    justify-content: center; /* Horizontally center the icon within the button's padding */
+    flex-shrink: 0; /* Important: Prevent the button from shrinking when space is tight */
+}
+
+.delete-task-icon-button:hover {
+    color: #c82333;
+    transform: scale(1.1);
 }

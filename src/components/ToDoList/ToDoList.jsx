@@ -1,5 +1,7 @@
 import React, { useState } from 'react'; 
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import "./ToDoList.css"
 
 export default function ToDoList(props) {
@@ -72,7 +74,7 @@ export default function ToDoList(props) {
         <ul className="no-bullets-list">
             {filteredTasks.length > 0 ? (
                 filteredTasks.map(task => (
-                    <li key={task.id}>
+                    <li key={task.id} className='task-item'>
                         <label htmlFor={`task-${task.id}`} className={task.isCompleted ? 'completed-task-label' : ''}>
                             <input
                                 type='checkbox'
@@ -84,8 +86,12 @@ export default function ToDoList(props) {
                             />
                             {task.taskitem}
                         </label>
-                        <button className="delete-task-button" onClick={() => handleDeleteClick(task.id)}>
-                            Delete
+                        <button
+                            className="delete-task-icon-button"
+                            onClick={() => handleDeleteClick(task.id)}
+                            aria-label={`Delete task: ${task.taskitem}`} 
+                        >
+                            <FontAwesomeIcon icon={faTrash} />
                         </button>
                     </li>
                 ))
