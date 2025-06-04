@@ -1,7 +1,6 @@
 # React Redux - Project 3
 React Redux Task Management App Website
 
-- Kamran Niknia
 - Overview/description of the project
     - This is a task management website. A user can enter tasks they want to complete.
 - Details on how to use it or what functionality is offered
